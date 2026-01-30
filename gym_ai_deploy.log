@@ -1,0 +1,14 @@
+ 
+[30/01/2026 19:22:13,40] ========== GYM AI DEPLOYMENT STARTED ========== 
+[30/01/2026 19:22:13,41] Directory: C:\Users\Usuario\OneDrive\Escritorio\Programacion\pyton\neural\Entrega\ 
+[30/01/2026 19:22:13,42] Time: 30/01/2026 19:22:13,40 
+[30/01/2026 19:22:15,27] --- Starting Flutter Setup --- 
+[30/01/2026 19:22:15,28] Checking Python 
+[30/01/2026 19:22:15,65] Python found: Python 3.13.9 
+[30/01/2026 19:22:15,66] Selecting model before Flutter UI 
+[30/01/2026 19:22:29,78] Checking Flutter 
+[30/01/2026 19:22:31,76] Flutter found: Tools • Dart 3.10.7 • DevTools 2.51.1 
+[30/01/2026 19:22:31,77] Downloading Flutter dependencies 
+[30/01/2026 19:22:34,07] Starting server in background 
+[30/01/2026 19:22:37,17] Starting Flutter UI 
+[30/01/2026 19:24:35,71] Flutter UI closed 

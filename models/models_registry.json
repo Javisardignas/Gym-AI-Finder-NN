@@ -1,0 +1,35 @@
+{
+  "gym_model_v1": {
+    "model_id": "gym_model_v1",
+    "accuracy": 20.0,
+    "created": "2026-01-30T13:15:24.895428",
+    "epochs_trained": 6,
+    "training_samples": 493,
+    "training_type": "full",
+    "database_size": 493,
+    "model_file": "gym_model_v1.pt",
+    "database_file": "gym_model_v1_database.pkl"
+  },
+  "gym_model_v4": {
+    "model_id": "gym_model_v4",
+    "accuracy": 10.0,
+    "created": "2026-01-29T18:43:53.859986",
+    "epochs_trained": 3,
+    "training_samples": 493,
+    "training_type": "finetuning",
+    "database_size": 493,
+    "model_file": "gym_model_v4.pt",
+    "database_file": "gym_model_v4_database.pkl"
+  },
+  "gym_model_v5": {
+    "model_id": "gym_model_v5",
+    "accuracy": 20.0,
+    "created": "2026-01-30T17:40:34.076323",
+    "epochs_trained": 6,
+    "training_samples": 493,
+    "training_type": "full",
+    "database_size": 493,
+    "model_file": "gym_model_v5.pt",
+    "database_file": "gym_model_v5_database.pkl"
+  }
+}

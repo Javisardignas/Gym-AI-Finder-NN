@@ -1,0 +1,89 @@
+{
+  "current_model": "gym_model_v4",
+  "last_updated": "2026-01-30T19:22:26.703069",
+  "tests": [
+    {
+      "query": "Sit on machine with back on padded support. Place feet slightly high on platform. Grasp handles to sides. Extend knees and hips until knees are fully extended. Return until hips are completely flexed. Repeat.",
+      "accuracy": 100.0,
+      "timestamp": "2026-01-29T23:12:39.222095",
+      "model": "base"
+    },
+    {
+      "query": "my name is mario",
+      "accuracy": 19.57,
+      "timestamp": "2026-01-30T00:37:38.547685",
+      "model": "gym_model_v5"
+    },
+    {
+      "query": "Lie prone on floor with hands slightly wider than shoulder width. Bend knees and raise body up off floor by extending arms with body straight. Keeping body straight and knees bent, lower body to floor by bending arms. Push body up until arms are extended. Repeat.",
+      "accuracy": 55.09,
+      "timestamp": "2026-01-30T10:25:43.625273",
+      "model": "base"
+    },
+    {
+      "query": "raise the dumbell from your hips to your shoulders",
+      "accuracy": 49.88,
+      "timestamp": "2026-01-30T11:27:08.521028",
+      "model": "gym_model_v5"
+    },
+    {
+      "query": "kfldsajf",
+      "accuracy": 22.39,
+      "timestamp": "2026-01-30T11:33:36.814704",
+      "model": "gym_model_v5"
+    },
+    {
+      "query": "Lie supine on incline bench with upper chest under lever bar. Grasp lever bar with wide oblique overhand grip. Press bar until arms are extended. Lower weight to upper chest. Repeat.",
+      "accuracy": 100.0,
+      "timestamp": "2026-01-30T11:45:54.496010",
+      "model": "gym_model_v6"
+    },
+    {
+      "query": "hola me llamo bujiç",
+      "accuracy": 18.66,
+      "timestamp": "2026-01-30T12:58:21.599112",
+      "model": "gym_model_v6"
+    },
+    {
+      "query": "Lie supine on bench with chest under lever bar. Grasp lever bar with wide oblique overhand grip. Press bar until arms are extended. Lower weight to upp   er chest. Repeat.",
+      "accuracy": 100.0,
+      "timestamp": "2026-01-30T17:40:42.956044",
+      "model": "gym_model_v5"
+    },
+    {
+      "query": "Grasp suspension handles and momentarily step back until arms are extended forward and straight. While keeping arms straight and shoulders back, step forward so body reclines back behind suspension handles. Position body and legs straight at desired angle, hanging from handles with arms straight. Pull body up so sides of chest make contact with handles while keeping body and legs straight. Pull shoulders back at top of movement with chest high. Return until arms are extended straight and shoulders are stretched forward. Repeat.",
+      "accuracy": 100.0,
+      "timestamp": "2026-01-30T19:21:48.795260",
+      "model": "gym_model_v4"
+    }
+  ],
+  "trainings": [
+    {
+      "model_created": "gym_model_v6",
+      "accuracy_before": 40.0,
+      "accuracy_after": 15.0,
+      "improvement": -25.0,
+      "epochs": 6,
+      "training_type": "full",
+      "timestamp": "2026-01-30T11:40:29.702539"
+    },
+    {
+      "model_created": "gym_model_v1",
+      "accuracy_before": 40.0,
+      "accuracy_after": 20.0,
+      "improvement": -20.0,
+      "epochs": 6,
+      "training_type": "full",
+      "timestamp": "2026-01-30T13:15:24.896800"
+    },
+    {
+      "model_created": "gym_model_v5",
+      "accuracy_before": 40.0,
+      "accuracy_after": 20.0,
+      "improvement": -20.0,
+      "epochs": 6,
+      "training_type": "full",
+      "timestamp": "2026-01-30T17:40:34.077804"
+    }
+  ]
+}
