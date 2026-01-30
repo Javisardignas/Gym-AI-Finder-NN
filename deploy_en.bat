@@ -43,10 +43,10 @@ echo    =======================================================
 echo               SYSTEM STATUS: BULKING IN PROGRESS
 echo    =======================================================
 echo.
-echo                  /\_/\
-echo                ( o . o )          "LIGHT WEIGHT,"
-echo                 ^>  w  ^<            "BABY!"
-echo              __/       \__
+echo              /\_/\
+echo            ( o . o )          "LIGHT WEIGHT,"
+echo             ^>  w  ^<            "BABY!"
+echo           __/       \__
 echo          /#####\       /#####\
 echo         ^| 80 KG ^|=====^| 80 KG ^|
 echo          \#####/       \#####/
@@ -770,10 +770,28 @@ REM Function: Install Python
 echo     [*] Installing Python from web...
 call :LOG "Installing Python automatically"
 
-REM Skip winget/choco and go directly to manual download
-REM (These often fail with Microsoft Store stub or outdated versions)
-echo     [!] Skipping package managers (often have issues)
-echo     [*] Downloading Python installer directly...
+REM Try with winget (Windows 11)
+where winget >nul 2>&1
+if not errorlevel 1 (
+    echo     [*] Using winget to install Python...
+    winget install -e --id Python.Python.3.11 --accept-source-agreements --accept-package-agreements --silent
+    if errorlevel 1 (
+        echo     [!] winget failed, trying direct download...
+        call :DOWNLOAD_PYTHON
+        exit /b !errorlevel!
+    )
+    exit /b 0
+)
+
+REM Try with Chocolatey
+where choco >nul 2>&1
+if not errorlevel 1 (
+    echo     [*] Using Chocolatey to install Python...
+    choco install python -y --silent
+    exit /b !errorlevel!
+)
+
+REM Manual download
 call :DOWNLOAD_PYTHON
 exit /b !errorlevel!
 
