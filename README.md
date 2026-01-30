@@ -1,176 +1,184 @@
+Developed by Mario Alonso Lopez, Emilian Alexandru Bujanca, and Javier Sariñas Carreto.
+
 # 🏋️ GYM AI FINDER - Neural Network Exercise Search System
 
-Sistema inteligente de búsqueda de ejercicios de gimnasio usando redes neuronales y embeddings semánticos. Combina un backend Python con IA y una interfaz Flutter moderna.
+## ⚡ Quick Start
 
-## 📋 Descripción
+**IMPORTANT:** To compile and run this project, execute `deploy_en.bat`. The neural network model is `nngym_v2.py`.
 
-**GYM AI FINDER** es un sistema de búsqueda inteligente que utiliza modelos de lenguaje (Sentence Transformers) para encontrar ejercicios de gimnasio basándose en descripciones en lenguaje natural. El sistema aprende de un dataset de 675 ejercicios diferentes y puede encontrar coincidencias semánticas precisas.
+---
 
-### 🎯 Características Principales
+Intelligent gym exercise search system using neural networks and semantic embeddings. Combines a Python backend with AI and a modern Flutter interface.
 
-- 🧠 **Red Neuronal Fine-tuned**: Modelo `sentence-transformers/all-MiniLM-L6-v2` entrenado específicamente para ejercicios de gimnasio
-- 🔍 **Búsqueda Semántica**: Encuentra ejercicios por descripción, músculos objetivo, o movimiento
-- 📊 **Sistema Multi-modelo**: Registro y versionado de modelos con métricas de rendimiento
-- 🎨 **Interfaz Flutter**: UI moderna con tema oscuro/claro, testing interactivo y resultados visuales
-- 🚀 **API REST**: Servidor Flask para comunicación Python ↔ Flutter
-- 💾 **Base de Datos Vectorial**: Indexación optimizada de embeddings para búsqueda rápida
+## 📋 Description
 
-## 🏗️ Arquitectura
+**GYM AI FINDER** is an intelligent search system that uses language models (Sentence Transformers) to find gym exercises based on natural language descriptions. The system learns from a dataset of 675 different exercises and can find precise semantic matches.
+
+### 🎯 Main Features
+
+- 🧠 **Fine-tuned Neural Network**: `sentence-transformers/all-MiniLM-L6-v2` model specifically trained for gym exercises
+- 🔍 **Semantic Search**: Find exercises by description, target muscles, or movement
+- 📊 **Multi-model System**: Model registry and versioning with performance metrics
+- 🎨 **Flutter Interface**: Modern UI with dark/light theme, interactive testing, and visual results
+- 🚀 **REST API**: Flask server for Python ↔ Flutter communication
+- 💾 **Vector Database**: Optimized embedding indexing for fast search
+
+## 🏗️ Architecture
 
 ```
 ┌─────────────────┐
-│  Flutter UI     │  ← Interfaz gráfica (Dart)
+│  Flutter UI     │  ← Graphical interface (Dart)
 └────────┬────────┘
          │ HTTP
          ↓
 ┌─────────────────┐
-│  Flask API      │  ← Servidor REST (Python)
-│  (puerto 5000)  │
+│  Flask API      │  ← REST Server (Python)
+│  (port 5000)    │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  GymBrain       │  ← Motor de IA (PyTorch + Transformers)
+│  GymBrain       │  ← AI Engine (PyTorch + Transformers)
 │  Neural Network │
 └────────┬────────┘
          │
          ↓
 ┌─────────────────┐
-│  Vector DB      │  ← Base de datos de embeddings (PKL)
-│  675 ejercicios │
+│  Vector DB      │  ← Embeddings database (PKL)
+│  675 exercises  │
 └─────────────────┘
 ```
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 Entrega/
-├── nngym_v2.py              # 🧠 Motor principal de IA
-├── deploy_en.bat            # 🚀 Script de despliegue automatizado
-├── servidor_simple.py       # 🌐 Servidor Flask para API
-├── model_registry.py        # 📚 Registro de modelos
-├── training_session.py      # 📊 Gestión de sesiones de entrenamiento
+├── nngym_v2.py              # 🧠 Main AI engine
+├── deploy_en.bat            # 🚀 Automated deployment script
+├── servidor_simple.py       # 🌐 Flask server for API
+├── model_registry.py        # 📚 Model registry
+├── training_session.py      # 📊 Training session management
 │
-├── gym_exercise_dataset.csv # 📋 Dataset (675 ejercicios)
-├── gym_brain_finetuned.pt   # 💾 Modelo entrenado (PyTorch)
-├── gym_database.pkl         # 🗄️ Base de datos vectorial
-├── config.json              # ⚙️ Estado del modelo
+├── gym_exercise_dataset.csv # 📋 Dataset (675 exercises)
+├── gym_brain_finetuned.pt   # 💾 Trained model (PyTorch)
+├── gym_database.pkl         # 🗄️ Vector database
+├── config.json              # ⚙️ Model state
 │
 ├── lib/
-│   ├── main.dart            # 🎨 App Flutter principal
-│   └── testing_page.dart    # 🧪 Página de testing
+│   ├── main.dart            # 🎨 Main Flutter app
+│   └── testing_page.dart    # 🧪 Testing page
 │
 └── assets/
-    ├── gym_exercise_dataset.csv      # Copia para Flutter
-    └── validation_set.json            # Set de validación
+    ├── gym_exercise_dataset.csv      # Copy for Flutter
+    └── validation_set.json            # Validation set
 ```
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### Requisitos Previos
+### Prerequisites
 
 - **Python 3.8+**
 - **Flutter 3.0+**
-- **Windows 10/11** (para usar `deploy_en.bat`)
+- **Windows 10/11** (to use `deploy_en.bat`)
 
-### Instalación Rápida
+### Quick Installation
 
 ```bash
-# 1. Ejecutar script de despliegue (instala todo automáticamente)
+# 1. Run deployment script (installs everything automatically)
 deploy_en.bat
 
-# El script instalará:
-# - Entorno virtual Python en C:\gym_env
-# - Dependencias: torch, transformers, flask, pandas, sklearn
-# - Flutter SDK (si no está instalado)
-# - Compilará la app Flutter
+# The script will install:
+# - Python virtual environment at C:\gym_env
+# - Dependencies: torch, transformers, flask, pandas, sklearn
+# - Flutter SDK (if not installed)
+# - Compile the Flutter app
 ```
 
-### Instalación Manual
+### Manual Installation
 
 ```bash
-# Crear entorno virtual
+# Create virtual environment
 python -m venv C:\gym_env
 
-# Activar entorno
+# Activate environment
 C:\gym_env\Scripts\activate
 
-# Instalar dependencias
+# Install dependencies
 pip install torch torchvision
 pip install transformers sentence-transformers
 pip install flask pandas scikit-learn
 
-# Instalar dependencias Flutter
+# Install Flutter dependencies
 flutter pub get
 ```
 
-## 📖 Uso
+## 📖 Usage
 
-### Opción 1: Entrenar Red Neuronal (Primera vez)
+### Option 1: Train Neural Network (First time)
 
 ```bash
 python nngym_v2.py 1
 ```
 
-**Qué hace:**
+**What it does:**
 
-- Descarga el modelo base `all-MiniLM-L6-v2` desde Hugging Face
-- Entrena el modelo con el dataset (6 épocas)
-- Genera embeddings para todos los ejercicios
-- Crea `gym_brain_finetuned.pt` y `gym_database.pkl`
-- Realiza test de validación con 5 muestras
-- Entra en modo de búsqueda interactiva
+- Downloads the base model `all-MiniLM-L6-v2` from Hugging Face
+- Trains the model with the dataset (6 epochs)
+- Generates embeddings for all exercises
+- Creates `gym_brain_finetuned.pt` and `gym_database.pkl`
+- Performs validation test with 5 samples
+- Enters interactive search mode
 
-**Tiempo estimado:** 5-15 minutos (dependiendo de CPU/GPU)
+**Estimated time:** 5-15 minutes (depending on CPU/GPU)
 
-### Opción 2: Cargar Modelo Pre-entrenado
+### Option 2: Load Pre-trained Model
 
 ```bash
 python nngym_v2.py 3
 ```
 
-**Qué hace:**
+**What it does:**
 
-- Carga el modelo ya entrenado
-- Carga la base de datos vectorial
-- Entra directamente en búsqueda interactiva
+- Loads the already trained model
+- Loads the vector database
+- Enters interactive search mode directly
 
-**Tiempo estimado:** 5-10 segundos
+**Estimated time:** 5-10 seconds
 
-### Opción 3: Iniciar Servidor API
+### Option 3: Start API Server
 
 ```bash
 python nngym_v2.py api
 ```
 
-**Qué hace:**
+**What it does:**
 
-- Inicia servidor Flask en `http://localhost:5000`
-- Expone endpoint `/api/search` para Flutter
-- Mantiene el modelo en memoria para respuestas rápidas
+- Starts Flask server at `http://localhost:5000`
+- Exposes `/api/search` endpoint for Flutter
+- Keeps the model in memory for fast responses
 
-### Opción 4: Ejecutar App Flutter
+### Option 4: Run Flutter App
 
 ```bash
-# Terminal 1: Iniciar servidor API
+# Terminal 1: Start API server
 python nngym_v2.py api
 
-# Terminal 2: Ejecutar Flutter
+# Terminal 2: Run Flutter
 flutter run -d windows
 ```
 
-O usar el script todo-en-uno:
+Or use the all-in-one script:
 
 ```bash
 deploy_en.bat
-# Seleccionar opción: [5] Launch FULL SYSTEM
+# Select option: [5] Launch FULL SYSTEM
 ```
 
-## 🔍 Ejemplos de Búsqueda
+## 🔍 Search Examples
 
-El sistema entiende lenguaje natural:
+The system understands natural language:
 
-### Búsqueda por Descripción de Movimiento
+### Search by Movement Description
 
 ```
 Query: "Move arm up and bring weight down to chest"
@@ -180,7 +188,7 @@ Results:
   3. Cable Fly (89.4%)
 ```
 
-### Búsqueda por Músculo Objetivo
+### Search by Target Muscle
 
 ```
 Query: "exercise for quadriceps and glutes"
@@ -190,7 +198,7 @@ Results:
   3. Bulgarian Split Squat (90.1%)
 ```
 
-### Búsqueda por Equipamiento
+### Search by Equipment
 
 ```
 Query: "cable machine for back muscles"
@@ -202,16 +210,16 @@ Results:
 
 ## 🧪 Testing Page (Flutter)
 
-La aplicación incluye una página de testing interactiva:
+The application includes an interactive testing page:
 
-- ✅ Test de conectividad con el servidor
-- 📋 Set de validación de 20 ejercicios predefinidos
-- 🎯 Muestra precisión de búsqueda en tiempo real
-- 📊 Visualización de scores de similitud
+- ✅ Server connectivity test
+- 📋 Validation set of 20 predefined exercises
+- 🎯 Shows search accuracy in real-time
+- 📊 Similarity score visualization
 
-Acceso: Botón "🧪 Testing" en la esquina superior derecha
+Access: "🧪 Testing" button in the upper right corner
 
-## ⚙️ Configuración
+## ⚙️ Configuration
 
 ### `config.json`
 
@@ -223,10 +231,10 @@ Acceso: Botón "🧪 Testing" en la esquina superior derecha
 }
 ```
 
-- `model_ready`: Indica si el modelo está listo para usar
-- `model_type`: `"trained"` o `"preloaded"`
+- `model_ready`: Indicates if the model is ready to use
+- `model_type`: `"trained"` or `"preloaded"`
 
-### Parámetros del Modelo (en `nngym_v2.py`)
+### Model Parameters (in `nngym_v2.py`)
 
 ```python
 MODEL_NAME = "sentence-transformers/all-MiniLM-L6-v2"
@@ -237,93 +245,93 @@ LEARNING_RATE = 1e-5
 
 ## 📊 Dataset
 
-El dataset incluye **675 ejercicios** con la siguiente estructura:
+The dataset includes **675 exercises** with the following structure:
 
-| Campo             | Descripción                                             |
-| ----------------- | ------------------------------------------------------- |
-| Exercise Name     | Nombre del ejercicio                                    |
-| Equipment         | Equipamiento necesario (Cable, Barbell, Dumbbell, etc.) |
-| Preparation       | Instrucciones de preparación                            |
-| Execution         | Instrucciones de ejecución                              |
-| Target_Muscles    | Músculos principales trabajados                         |
-| Synergist_Muscles | Músculos sinérgicos                                     |
-| Difficulty        | Nivel de dificultad (1-5)                               |
+| Field             | Description                                         |
+| ----------------- | --------------------------------------------------- |
+| Exercise Name     | Exercise name                                       |
+| Equipment         | Required equipment (Cable, Barbell, Dumbbell, etc.) |
+| Preparation       | Preparation instructions                            |
+| Execution         | Execution instructions                              |
+| Target_Muscles    | Main muscles worked                                 |
+| Synergist_Muscles | Synergist muscles                                   |
+| Difficulty        | Difficulty level (1-5)                              |
 
-**Fuente:** Base de datos profesional de ejercicios de fitness
+**Source:** Professional fitness exercise database
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
 ### Backend (Python)
 
-- **PyTorch**: Framework de deep learning
-- **Transformers** (Hugging Face): Modelos de lenguaje pre-entrenados
-- **Flask**: API REST
-- **Pandas**: Manipulación de datos
-- **scikit-learn**: División train/test
+- **PyTorch**: Deep learning framework
+- **Transformers** (Hugging Face): Pre-trained language models
+- **Flask**: REST API
+- **Pandas**: Data manipulation
+- **scikit-learn**: Train/test split
 
 ### Frontend (Flutter)
 
 - **Dart 3.0+**
 - **Material Design 3**
-- **HTTP Client**: Comunicación con API
+- **HTTP Client**: API communication
 - **Provider**: State management
 
-## 📈 Métricas de Rendimiento
+## 📈 Performance Metrics
 
-### Precisión del Modelo
+### Model Accuracy
 
-- **Validación (top-1):** ~85-95%
-- **Validación (top-3):** ~95-99%
+- **Validation (top-1):** ~85-95%
+- **Validation (top-3):** ~95-99%
 
-### Velocidad
+### Speed
 
-- **Búsqueda:** < 100ms (con modelo cargado en memoria)
-- **Entrenamiento:** 5-15 minutos (CPU) / 2-5 minutos (GPU)
+- **Search:** < 100ms (with model loaded in memory)
+- **Training:** 5-15 minutes (CPU) / 2-5 minutes (GPU)
 
-### Uso de Memoria
+### Memory Usage
 
-- **Modelo en RAM:** ~90 MB
-- **Base de datos vectorial:** ~5 MB
+- **Model in RAM:** ~90 MB
+- **Vector database:** ~5 MB
 
 ## 🐛 Troubleshooting
 
 ### Error: "Database not found"
 
 ```bash
-# Solución: Entrenar el modelo primero
+# Solution: Train the model first
 python nngym_v2.py 1
 ```
 
 ### Error: "Connection timeout to Hugging Face"
 
 ```bash
-# Solución: Verificar conexión a internet y reintentar
-# El script tiene 3 reintentos automáticos con timeout de 5 minutos
+# Solution: Check internet connection and retry
+# The script has 3 automatic retries with 5-minute timeout
 ```
 
 ### Error: "Port 5000 already in use"
 
 ```bash
-# Solución: Cambiar puerto en servidor_simple.py o matar proceso
+# Solution: Change port in servidor_simple.py or kill process
 netstat -ano | findstr :5000
 taskkill /PID <PID> /F
 ```
 
-### Flutter no se conecta al servidor
+### Flutter doesn't connect to server
 
 ```bash
-# Verificar que el servidor esté corriendo
+# Verify that the server is running
 curl http://localhost:5000/api/search
 
-# Verificar firewall de Windows
-# Permitir Python en firewall si es necesario
+# Check Windows firewall
+# Allow Python in firewall if necessary
 ```
 
-## 🔧 Scripts de Utilidad
+## 🔧 Utility Scripts
 
 ### `deploy_en.bat`
 
-Script master de despliegue con menú interactivo:
+Master deployment script with interactive menu:
 
 - [1] Check System Status
 - [2] Install Python Dependencies
@@ -333,39 +341,38 @@ Script master de despliegue con menú interactivo:
 - [6] Run Tests
 - [7] Generate Production Build
 
-### Otros Scripts
+### Other Scripts
 
-- `servidor_simple.py`: Servidor Flask standalone
-- `generar_database.py`: Regenerar base de datos vectorial
-- `model_registry.py`: Gestión de múltiples versiones de modelos
+- `servidor_simple.py`: Standalone Flask server
+- `generar_database.py`: Regenerate vector database
+- `model_registry.py`: Manage multiple model versions
 
-## 📝 Notas Importantes
+## 📝 Important Notes
 
-1. **Primera ejecución:** Siempre ejecutar `python nngym_v2.py 1` para entrenar el modelo
-2. **Modelo en memoria:** El servidor API mantiene el modelo cargado para respuestas rápidas
-3. **Assets Flutter:** Los archivos en `assets/` son necesarios para la compilación
-4. **Base de datos:** `gym_database.pkl` se regenera automáticamente si se borra
+1. **First run:** Always execute `python nngym_v2.py 1` to train the model
+2. **Model in memory:** The API server keeps the model loaded for fast responses
+3. **Flutter Assets:** Files in `assets/` are necessary for compilation
+4. **Database:** `gym_database.pkl` is automatically regenerated if deleted
 
-## 🚀 Próximas Mejoras
+## 🚀 Future Improvements
 
-- [ ] Soporte para imágenes de ejercicios
-- [ ] Filtros por dificultad y equipamiento
-- [ ] Sistema de favoritos y rutinas personalizadas
-- [ ] Modo offline con base de datos local
-- [ ] Soporte para múltiples idiomas
-- [ ] Integración con APIs de fitness tracking
+- [ ] Support for exercise images
+- [ ] Filters by difficulty and equipment
+- [ ] Favorites system and personalized routines
+- [ ] Offline mode with local database
+- [ ] Multi-language support
+- [ ] Integration with fitness tracking APIs
 
-## 👨‍💻 Autor
+## 👨‍💻 Author
 
-Sistema de IA para búsqueda de ejercicios de gimnasio  
-**Versión:** 2.0  
-**Fecha:** Enero 2026
+AI system for gym exercise search  
+**Version:** 2.0  
+**Date:** January 2026
 
-## 📄 Licencia
+## 📄 License
 
-Proyecto educativo - Uso libre para aprendizaje
+Educational project - Free use for learning
 
 ---
 
 **🏋️ "LIGHT WEIGHT, BABY!" 💪**
-
