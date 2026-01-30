@@ -96,21 +96,14 @@ deploy_en.bat
 
 ### Manual Installation
 
+1. Download the project as a ZIP file and extract it to a local folder (e.g., `C:\GymAI\Entrega`).
+2. Open a terminal in the extracted folder and run the deployment script:
+
 ```bash
-# Create virtual environment
-python -m venv C:\gym_env
-
-# Activate environment
-C:\gym_env\Scripts\activate
-
-# Install dependencies
-pip install torch torchvision
-pip install transformers sentence-transformers
-pip install flask pandas scikit-learn
-
-# Install Flutter dependencies
-flutter pub get
+deploy_en.bat
 ```
+
+> The deploy script will create the environment and install all dependencies automatically.
 
 ## 📖 Usage
 
